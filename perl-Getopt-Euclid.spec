@@ -4,16 +4,15 @@
 #
 Name     : perl-Getopt-Euclid
 Version  : 0.4.5
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/F/FA/FANGLY/Getopt-Euclid-0.4.5.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/F/FA/FANGLY/Getopt-Euclid-0.4.5.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libg/libgetopt-euclid-perl/libgetopt-euclid-perl_0.4.5-2.debian.tar.xz
 Summary  : 'Executable Uniform Command-Line Interface Descriptions'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-Getopt-Euclid-license
-Requires: perl-Getopt-Euclid-man
-Requires: perl(Module::Install)
+Requires: perl-Getopt-Euclid-license = %{version}-%{release}
+BuildRequires : buildreq-cpan
 BuildRequires : perl(Module::Install)
 
 %description
@@ -21,6 +20,15 @@ NAME
 Getopt::Euclid - Executable Uniform Command-Line Interface Descriptions
 VERSION
 This document describes Getopt::Euclid version 0.4.5
+
+%package dev
+Summary: dev components for the perl-Getopt-Euclid package.
+Group: Development
+Provides: perl-Getopt-Euclid-devel = %{version}-%{release}
+
+%description dev
+dev components for the perl-Getopt-Euclid package.
+
 
 %package license
 Summary: license components for the perl-Getopt-Euclid package.
@@ -30,19 +38,11 @@ Group: Default
 license components for the perl-Getopt-Euclid package.
 
 
-%package man
-Summary: man components for the perl-Getopt-Euclid package.
-Group: Default
-
-%description man
-man components for the perl-Getopt-Euclid package.
-
-
 %prep
-tar -xf %{SOURCE1}
-cd ..
 %setup -q -n Getopt-Euclid-0.4.5
-mkdir -p %{_topdir}/BUILD/Getopt-Euclid-0.4.5/deblicense/
+cd ..
+%setup -q -T -D -n Getopt-Euclid-0.4.5 -b 1
+mkdir -p deblicense/
 mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Getopt-Euclid-0.4.5/deblicense/
 
 %build
@@ -67,12 +67,12 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-Getopt-Euclid
-cp deblicense/copyright %{buildroot}/usr/share/doc/perl-Getopt-Euclid/deblicense_copyright
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-Getopt-Euclid
+cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Getopt-Euclid/deblicense_copyright
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -81,12 +81,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/Getopt/Euclid.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Getopt/Euclid.pm
 
-%files license
-%defattr(-,root,root,-)
-/usr/share/doc/perl-Getopt-Euclid/deblicense_copyright
-
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Getopt::Euclid.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Getopt-Euclid/deblicense_copyright
