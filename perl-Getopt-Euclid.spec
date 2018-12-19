@@ -4,7 +4,7 @@
 #
 Name     : perl-Getopt-Euclid
 Version  : 0.4.5
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/F/FA/FANGLY/Getopt-Euclid-0.4.5.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/F/FA/FANGLY/Getopt-Euclid-0.4.5.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libg/libgetopt-euclid-perl/libgetopt-euclid-perl_0.4.5-2.debian.tar.xz
@@ -43,7 +43,7 @@ license components for the perl-Getopt-Euclid package.
 cd ..
 %setup -q -T -D -n Getopt-Euclid-0.4.5 -b 1
 mkdir -p deblicense/
-mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Getopt-Euclid-0.4.5/deblicense/
+cp -r %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/Getopt-Euclid-0.4.5/deblicense/
 
 %build
 export http_proxy=http://127.0.0.1:9/
