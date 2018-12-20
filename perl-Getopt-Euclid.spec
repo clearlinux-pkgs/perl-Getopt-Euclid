@@ -4,7 +4,7 @@
 #
 Name     : perl-Getopt-Euclid
 Version  : 0.4.5
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/F/FA/FANGLY/Getopt-Euclid-0.4.5.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/F/FA/FANGLY/Getopt-Euclid-0.4.5.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libg/libgetopt-euclid-perl/libgetopt-euclid-perl_0.4.5-2.debian.tar.xz
