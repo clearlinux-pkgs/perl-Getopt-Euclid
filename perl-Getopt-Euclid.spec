@@ -4,7 +4,7 @@
 #
 Name     : perl-Getopt-Euclid
 Version  : 0.4.5
-Release  : 17
+Release  : 18
 URL      : https://cpan.metacpan.org/authors/id/F/FA/FANGLY/Getopt-Euclid-0.4.5.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/F/FA/FANGLY/Getopt-Euclid-0.4.5.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libg/libgetopt-euclid-perl/libgetopt-euclid-perl_0.4.5-2.debian.tar.xz
@@ -80,7 +80,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Getopt-Euclid
-cp %{_builddir}/Getopt-Euclid-0.4.5/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-Getopt-Euclid/fb5c9d1c927eb97797bffdffd5c04e08e9bcd546
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-Getopt-Euclid/fb5c9d1c927eb97797bffdffd5c04e08e9bcd546
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -104,4 +104,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Getopt/Euclid.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Getopt/Euclid.pm
