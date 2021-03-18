@@ -4,7 +4,7 @@
 #
 Name     : perl-Getopt-Euclid
 Version  : 0.4.5
-Release  : 19
+Release  : 20
 URL      : https://cpan.metacpan.org/authors/id/F/FA/FANGLY/Getopt-Euclid-0.4.5.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/F/FA/FANGLY/Getopt-Euclid-0.4.5.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libg/libgetopt-euclid-perl/libgetopt-euclid-perl_0.4.5-2.debian.tar.xz
@@ -15,6 +15,8 @@ Requires: perl-Getopt-Euclid-license = %{version}-%{release}
 Requires: perl-Getopt-Euclid-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Module::Install)
+BuildRequires : perl(Pod::PlainText)
+BuildRequires : perl(Pod::Select)
 
 %description
 NAME
@@ -104,4 +106,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/Getopt/Euclid.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Getopt/Euclid.pm

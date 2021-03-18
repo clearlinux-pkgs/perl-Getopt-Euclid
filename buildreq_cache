@@ -1,2 +1,4 @@
 0.4.5
 perl(Module::Install)
+perl(Pod::PlainText)
+perl(Pod::Select)
