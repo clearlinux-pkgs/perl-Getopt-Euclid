@@ -1,4 +1,5 @@
-0.4.5
-perl(Module::Install)
+0.4.6
+perl(IO::Page)
+perl(IO::Pager::Page)
 perl(Pod::PlainText)
 perl(Pod::Select)
