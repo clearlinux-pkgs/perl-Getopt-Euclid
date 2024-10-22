@@ -1,5 +1,4 @@
-0.4.6
-perl(IO::Page)
+0.4.8
 perl(IO::Pager::Page)
 perl(Pod::PlainText)
 perl(Pod::Select)
